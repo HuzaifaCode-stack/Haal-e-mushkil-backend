@@ -6,6 +6,13 @@ const listGravience = async (req, res) => {
   try {
     const data = await Gravience.find({});
 
+    if (!data) {
+      return res.send({
+        success: 0,
+        message: "No list found",
+      });
+    }
+
     return res.send({
       success: 1,
       message: "Fetched successfully",
